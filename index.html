@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gestionare Medicală</title>
+    <!-- Se include fisierul CSS pentru stilizare -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Titlul principal al paginii -->
+    <h1>Bază de date – Gestionare medicală</h1>
+
+    <div class="dropdown-wrapper">
+        <!-- Dropdown pentru selectarea colectiei -->
+        <div class="dropdown-container">
+            <label for="collectionDropdown">Selectează o colecție:</label>
+            <select id="collectionDropdown">
+                <option value="">-- Selectează --</option>
+                <option value="boli">Boli</option>
+                <option value="consultatii">Consultații</option>
+                <option value="diagnostice">Diagnostice</option>
+                <option value="medicamente">Medicamente</option>
+                <option value="medici">Medici</option>
+                <option value="pacienti">Pacienți</option>
+                <option value="schema_tratament">Schema tratament</option>
+                <option value="alocare_pacienti">Alocare pacienți</option>
+            </select>
+        </div>
+
+        <!-- Dropdown pentru selectarea unei interogari speciale -->
+        <div class="dropdown-container">
+            <label for="queryDropdown">Operațiuni avansate:</label>
+            <select id="queryDropdown">
+                <option value="">-- Selectează interogare --</option>
+                <option value="pacientiMedic">Pacienți alocați unui medic</option>
+                <option value="pacientiGripaMedici">Pacienți cu gripă și medicii lor</option>
+                <option value="consultatiiMed">Consultațiile unui medic</option>
+                <!-- Aici pot fi adaugate si alte interogari viitoare -->
+            </select>
+        </div>
+
+        <!-- Zona de actiuni asupra colectiilor: cautare, adaugare, modificare -->
+        <div class="action-container" id="actionControls" style="display: none;">
+            <select id="actionDropdown">
+                <option value="">-- Alege acțiune --</option>
+                <option value="search">Căutare</option>
+                <option value="add">Adăugare</option>
+                <option value="update">Modificare</option>
+            </select>
+
+            <!-- Camp input pentru cautare -->
+            <input type="text" id="searchInput" placeholder="Caută..." style="display: none;" />
+            <!-- Buton pentru reincarcarea colectiei -->
+            <button id="reloadButton" style="display: none;">🔄 Reîncarcă colecția</button>
+            <!-- Container pentru formularul de inserare (adaugare document nou) -->
+            <div id="insertFormContainer" style="display: none; margin-top: 20px;"></div>
+        </div>
+    </div>
+
+    <p id="updateInstruction" style="display: none; color: #555; font-style: italic; margin-left: 20px;">
+        Dublu click pe un câmp pentru a modifica.
+    </p>
+
+
+    <!-- Container unde se va afisa tabelul cu datele din colectii sau rezultatele interogarilor -->
+    <div id="tableContainer"></div>
+
+    <!-- Se include fisierul JavaScript pentru functionalitati -->
+    <script src="script.js?v=4.5"></script>
+</body>
+
+</html>
